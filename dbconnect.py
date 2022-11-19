@@ -1,9 +1,11 @@
 #!/usr/bin/python
 import mysql.connector
 
-db = mysql.connector.connect(
-    host="localhost", user="root", password="", database="rendszamok")
-cursor = db.cursor()
+
+def connect(hostname, user, password, database):
+    db = mysql.connector.connect(
+        host=hostname, user="root", password="", database="rendszamok")
+    cursor = db.cursor()
 # query = "SELECT * FROM adatok"
 # cursor.execute(query)
 # for (rendszam, ervenyesberlet, szektor) in cursor:
