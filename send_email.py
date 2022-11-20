@@ -61,10 +61,10 @@ def CreateMessage(sender, to, subject, msgHtml, msgPlain):
     return body
 
 
-def start_email_process(dest_email, PLATE, msgHTML, msgPLAIN, sbj):
+def start_email_process(dest_email, msgHTML, msgPLAIN, msgSubject):
     to = dest_email
     sender = "mrpiplaterecogniser@gmail.com"
-    subject = sbj
+    subject = msgSubject
     msgHtml = msgHTML
     msgPlain = msgPLAIN
     SendMessage(sender, to, subject, msgHtml, msgPlain)
