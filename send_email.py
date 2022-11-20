@@ -61,12 +61,12 @@ def CreateMessage(sender, to, subject, msgHtml, msgPlain):
     return body
 
 
-def start_email_process(dest_email, PLATE):
+def start_email_process(dest_email, PLATE, msgHTML, msgPLAIN, sbj):
     to = dest_email
     sender = "mrpiplaterecogniser@gmail.com"
-    subject = "Rossz szektor"
-    msgHtml = "<h1>Hello there</h1><p> rendszámú autója rossz szektorban kísérelt meg parkolni....</p>"
-    msgPlain = "Hi\nEz a plain üzenet, ha a Html nem tölt be"
+    subject = sbj
+    msgHtml = msgHTML
+    msgPlain = msgPLAIN
     SendMessage(sender, to, subject, msgHtml, msgPlain)
 
 # pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
