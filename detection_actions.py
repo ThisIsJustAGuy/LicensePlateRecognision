@@ -4,8 +4,7 @@ from datetime import datetime
 
 def add_detection(sector, successful, cursor, db):
     sector = sector.upper()
-    query = "INSERT INTO detections (szektor, idobelyeg, sikerese) VALUES(%s, %s, %s)"
-    record = (sector, datetime.today(), successful)
-    cursor.execute(query, record)
+    cursor.execute("INSERT INTO detections (szektor, idobelyeg, sikerese) VALUES (%(sector)s, %(datetime)s, %(successful)s)", {
+                   "sector": sector, "datetime": datetime.today(), "successful": successful})
     db.commit()
     print("Detekció felvéve")

@@ -3,58 +3,88 @@ from send_email import start_email_process
 from plate_actions import get_email_by_plate, plate_in_db, car_has_valid_ticket, car_is_in_correct_sector
 from detection_actions import add_detection
 from bs4 import BeautifulSoup
+from stat_actions import get_stats, display_stats
 
-SECTOR = 'B'
-PLATE = "AAAA123"
+# TODO dokumentáció, használati útmutató, readme.md, adatvizualizáció
 
-db = connecttodb("localhost", "root", "", "rendszamok")
-cursor = db.cursor()
 
-HTMLFile = open("email_template.html", "r", encoding="utf8")
-index = HTMLFile.read()
-msgHTML = BeautifulSoup(index, features="html.parser")
-title1 = msgHTML.find(id="title1")
-title2 = msgHTML.find(id="title2")
-description = msgHTML.find(id="description1")
-subdescription = msgHTML.find(id="subdescription")
+def plate(db, cursor):
+    SECTOR = 'B'
+    PLATE = "AAAA123"
 
-if (plate_in_db(PLATE, cursor)):
-    print("A rendszám benne van az adatbázisban")
-    if (car_has_valid_ticket(PLATE, cursor)):
-        print("Az autónak érvényes bérlete van")
-        if (car_is_in_correct_sector(PLATE, SECTOR, cursor)):
-            print("Az autónak érvényes bérlete van az adott szektorra")
-            print(
-                "Az autó bejöhet, LED folyamatosan világít, detectionsbe sikeres belépés kezdeményezés")
-            add_detection(SECTOR, 1, cursor, db)
+    HTMLFile = open("email_template.html", "r", encoding="utf8")
+    index = HTMLFile.read()
+    msgHTML = BeautifulSoup(index, features="html.parser")
+    title1 = msgHTML.find(id="title1")
+    title2 = msgHTML.find(id="title2")
+    description = msgHTML.find(id="description1")
+    subdescription = msgHTML.find(id="subdescription")
+
+    # TODO  stats display
+    #       PI-n hogy fusson? A képkészítő script a kép elkésuülése után hívonatja majd a maint, aminek akkor már más neve lesz
+    #       Stats script külön, csak lekérdezés igazából
+
+    if (plate_in_db(PLATE, cursor)):
+        print("A rendszám benne van az adatbázisban")
+        if (car_has_valid_ticket(PLATE, cursor)):
+            print("Az autónak érvényes bérlete van")
+            if (car_is_in_correct_sector(PLATE, SECTOR, cursor)):
+                print("Az autónak érvényes bérlete van az adott szektorra")
+                print(
+                    "Az autó bejöhet, LED folyamatosan világít, detectionsbe sikeres belépés kezdeményezés")
+                add_detection(SECTOR, 1, cursor, db)
+            else:
+                print(
+                    "Az autó rossz szektorban van, 2 LED villanás, email- és detectionsbe sikertelen belépés kezdeményezés")
+                dest_email = get_email_by_plate(PLATE, cursor)
+                title1.string.replace_with("Rossz")
+                title2.string.replace_with("szektor")
+                description.string.replace_with(
+                    "Olyan szektorba próbált parkolni, ahova nincs érvényes bérlete. Az alábbi linken megtekintheti hova van érvényes bérlete:\nwww.example.com")
+                subdescription.string.replace_with(
+                    "Az alábbi linken vásárolhat új bérletet:\nwww.example2.com")
+                msgPLAIN = "Rossz szektor"
+                msgSubject = "Rossz szektor"
+                start_email_process(dest_email, msgHTML,
+                                    msgPLAIN, msgSubject)
+                add_detection(SECTOR, 0, cursor, db)
         else:
             print(
-                "Az autó rossz szektorban van, 2 LED villanás, email- és detectionsbe sikertelen belépés kezdeményezés")
+                "Az autónak nincs érvényes bérlete, 3 LED villanás, email- és detectionsbe sikertelen belépés kezdeményezés")
             dest_email = get_email_by_plate(PLATE, cursor)
-            title1.string.replace_with("Rossz")
-            title2.string.replace_with("szektor")
+            title1.string.replace_with("Nincs érvényes")
+            title2.string.replace_with("bérlet")
             description.string.replace_with(
-                "Olyan szektorba próbált parkolni, ahova nincs érvényes bérlete. Az alábbi linken megtekintheti hova van érvényes bérlete:\nwww.example.com")
+                "Sajnos ennek az autójának egyáltalán nincs érvényes bérlete.")
             subdescription.string.replace_with(
                 "Az alábbi linken vásárolhat új bérletet:\nwww.example2.com")
-            msgPLAIN = "Rossz szektor"
-            msgSubject = "Rossz szektor"
-            start_email_process(dest_email, msgHTML,
-                                msgPLAIN, msgSubject)
+            msgPLAIN = "Nincs érvényes bérlete"
+            msgSubject = "Nincs érvényes bérlete"
+            start_email_process(dest_email, msgHTML, msgPLAIN, msgSubject)
             add_detection(SECTOR, 0, cursor, db)
     else:
-        print("Az autónak nincs érvényes bérlete, 3 LED villanás, email- és detectionsbe sikertelen belépés kezdeményezés")
-        dest_email = get_email_by_plate(PLATE, cursor)
-        title1.string.replace_with("Nincs érvényes")
-        title2.string.replace_with("bérlet")
-        description.string.replace_with(
-            "Sajnos ennek az autójának egyáltalán nincs érvényes bérlete.")
-        subdescription.string.replace_with(
-            "Az alábbi linken vásárolhat új bérletet:\nwww.example2.com")
-        msgPLAIN = "Nincs érvényes bérlete"
-        msgSubject = "Nincs érvényes bérlete"
-        start_email_process(dest_email, msgHTML, msgPLAIN, msgSubject)
+        print("A rendszám nincs az adatbázisban, 4 LED villanás, detectionsbe sikertelen belépés kezdeményezés")
         add_detection(SECTOR, 0, cursor, db)
-else:
-    print("A rendszám nincs az adatbázisban, 4 LED villanás, detectionsbe sikertelen belépés kezdeményezés")
-    add_detection(SECTOR, 0, cursor, db)
+
+
+def statistics(cursor):
+    when = input(
+        "Mekkora időre levetítve szeretné lekérni a statisztikákat? (y = elmúlt egy év, m = elmúlt egy hónap, w = elmúlt egy hét; egy év az alapértelmezés)\n")
+    stats = get_stats(cursor, when)
+    print("Az elmúlt %s statisztikája:" % ("hét" if when == 'w' else (
+        "hónap" if when == 'm' else "év")))
+    display_stats(stats)
+
+
+def plate_or_stats(which):
+    db = connecttodb("localhost", "root", "", "rendszamok")
+    cursor = db.cursor()
+    if which[0] == 'r':
+        plate(db, cursor)
+    else:
+        statistics(cursor)
+
+
+if __name__ == "__main__":
+    plate_or_stats(input(
+        "Rendszámellenőrzés(r) vagy statisztika(s)? (statisztika az alapértelmezés)\n").lower())
