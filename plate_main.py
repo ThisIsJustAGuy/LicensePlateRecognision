@@ -3,14 +3,13 @@ from send_email import start_email_process
 from plate_actions import get_email_by_plate, plate_in_db, car_has_valid_ticket, car_is_in_correct_sector
 from detection_actions import add_detection
 from bs4 import BeautifulSoup
-from stat_actions import get_stats, display_stats
 
 # TODO dokumentáció, használati útmutató, readme.md, adatvizualizáció
 
 db = connecttodb("localhost", "root", "", "rendszamok")
 cursor = db.cursor()
-SECTOR = 'B'
-PLATE = "AAAA123"
+SECTOR = 'D'
+PLATE = "ZYX987"
 
 HTMLFile = open("email_template.html", "r", encoding="utf8")
 index = HTMLFile.read()
