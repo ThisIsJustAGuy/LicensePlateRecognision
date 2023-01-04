@@ -69,4 +69,5 @@ def start_email_process(dest_email, msgHTML, msgPLAIN, msgSubject):
     msgPlain = msgPLAIN
     SendMessage(sender, to, subject, msgHtml, msgPlain)
 
+# ezt lehet időnként le kell frissíteni
 # pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
