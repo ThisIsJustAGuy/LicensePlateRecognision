@@ -142,7 +142,7 @@ Az alábbi utasítások követésével tudja letölteni, és használni az appot
 
 A projektet MIT licesz védi. További információért tekintse meg a `LICENSE` fájlt.
 
-<p align="right">(<a href="#readme-top">vissza az elejérep</a>)</p>
+<p align="right">(<a href="#readme-top">vissza az elejére</a>)</p>
 
 
 
