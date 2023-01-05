@@ -1,22 +1,18 @@
 <!-- PROJECT SHIELDS -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+[![Contributors]][contributors-url]
+[![Issues]][issues-url]
+[![MIT License]][license-url]
 
 
 
 <!-- PROJECT LOGO -->
 <br />
-<div align="center">
+<div align="center" id="readme-top">
 
   <h3 align="center">Parking Lot Manager</h3>
 
   <p align="center">
     (PLM)
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
   </p>
 </div>
 
@@ -29,7 +25,7 @@
     <li>
       <a href="#about-the-project">A Projektről</a>
       <ul>
-        <li><a href="#built-with">Így készült</a></li>
+        <li><a href="#built-with">Ezzel készült</a></li>
       </ul>
     </li>
     <li>
@@ -39,16 +35,15 @@
         <li><a href="#installation">Telepítés</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Használat</a></li>
     <li><a href="#contributing">Közreműködők</a></li>
     <li><a href="#license">Licensz</a></li>
-    <li><a href="#contact">Elérhetőség</a></li>
   </ol>
 </details>
 
 
 
 <!-- ABOUT THE PROJECT -->
+<div id="about-the-project"></div>
 ## A Projektről
 
 A Parking Lot manager egy parkolóház rendszám alapú beléptetését kezelő program.
@@ -62,30 +57,33 @@ Az adatbázisban tároljuk:
 <p align="right">(<a href="#readme-top">vissza az elejére</a>)</p>
 
 
-
-### Built With
+<div id="built-with"></div>
+### Ezzel készült
 
 Az alább látható library-k voltak használva a projekt elkészítésekor:
-* [![MySQLConnector]][MySQLConnector-url]
+* [![MySQLConnector][MySQLConnector]][MySQLConnector-url]
 * [![Matplotlib][Matplotlib]][Matplotlib-url]
-* [![Beautifulsoup]][Beautifulsoup-url]
-* [![Dateutil]][Dateutil-url]
+* [![Beautifulsoup][Beautifulsoup]][Beautifulsoup-url]
+* [![Dateutil][Dateutil]][Dateutil-url]
 
 <p align="right">(<a href="#readme-top">vissza az elejére</a>)</p>
 
 
 
 <!-- GETTING STARTED -->
+<div id="getting-started"></div>
 ## Kezdjünk neki
 
 Hogy kezdjük a használatot:
 
+<div id="prerequisites"></div>
 ### Előkövetelmények
 
 <p align="left">Kelleni fog a:</p>
-* <a href="https://www.python.org/downloads/windows/">Python</a>
-* <a href="https://pip.pypa.io/en/stable/installation/">Pip</a>
+* [![Python]][Python-url]
+* [![Pip]][Pip-url]
 
+<div id="installation"></div>
 ### Letöltés
 
 Az alábbi utasítások követésével tudja letölteni, és használni az appot.
@@ -96,10 +94,10 @@ Az alábbi utasítások követésével tudja letölteni, és használni az appot
    git clone https://github.com/ThisIsJustAGuy/LicensePlateRecognision
    ```
 3. Telepítse ezeket a köyvtárakat
-   > MySQL connector
+  > MySQL connector
 
   ```sh
-  pip install mysql-connector-python
+  pip install mysql-connector-python 
   ```
 
   > Gmail-es levélküldéshez szükséges
@@ -111,7 +109,7 @@ Az alábbi utasítások követésével tudja letölteni, és használni az appot
 
   > Matplotlib, amely magával hozza a Numpy-t is
 
-  ```sh 
+  ```sh
   pip install matplotlib
   ```
 
@@ -128,16 +126,18 @@ Az alábbi utasítások követésével tudja letölteni, és használni az appot
 
 
 <!-- CONTRIBUTING -->
+<div id="contributing"></div>
 ## Közreműködők
 
-* [BB]Borbély Bálint
-* [FL]Fábry László
+* [![Borbély Bálint][BB]]
+* [![Fábry László][FL]]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- LICENSE -->
+<div id="license"></div>
 ## Licensz
 
 A projektet MIT licesz védi. További információért tekintse meg a `LICENSE` fájlt.
@@ -148,20 +148,15 @@ A projektet MIT licesz védi. További információért tekintse meg a `LICENSE`
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/ThisIsJustAGuy/LicensePlateRecognision/graphs/contributors
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
 [issues-url]:https://github.com/ThisIsJustAGuy/LicensePlateRecognision/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/ThisIsJustAGuy/LicensePlateRecognision/blob/main/LICENSE
 
+[Python-url]: https://www.python.org/downloads/windows/
+[Pip-url]: https://pip.pypa.io/en/stable/installation/
 [BB]: https://github.com/ThisIsJustAGuy
 [FL]: https://github.com/fabrylaszlo
-[Matplotlib]: https://matplotlib.org/_static/images/logo_dark.svg
 [Matplotlib-url]: https://matplotlib.org
-[MySQLConnector]: https://pypi.org/static/images/logo-small.fecb6dab.svg
 [MySQLConnector-url]: https://pypi.org/project/mysql-connector-python/
-[Beautifulsoup]:
 [Beautifulsoup-url]: https://beautiful-soup-4.readthedocs.io/en/latest/
-[Dateutil]:
 [Dateutil-url]: https://dateutil.readthedocs.io/en/stable/
