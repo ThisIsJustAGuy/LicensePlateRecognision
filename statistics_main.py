@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from dbconnect import connecttodb
 from stat_actions import get_all_stats, create_charts
 

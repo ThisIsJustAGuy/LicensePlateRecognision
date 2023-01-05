@@ -1,10 +1,11 @@
+#!/usr/bin/python
 from dbconnect import connecttodb
 from send_email import start_email_process
 from plate_actions import get_email_by_plate, plate_in_db, car_has_valid_ticket, car_is_in_correct_sector
 from detection_actions import add_detection
 from bs4 import BeautifulSoup
 
-# TODO dokumentáció, használati útmutató, readme.md, adatvizualizáció
+# TODO dokumentáció, használati útmutató, readme.md
 
 db = connecttodb("localhost", "root", "", "rendszamok")
 cursor = db.cursor()
@@ -18,10 +19,6 @@ title1 = msgHTML.find(id="title1")
 title2 = msgHTML.find(id="title2")
 description = msgHTML.find(id="description1")
 subdescription = msgHTML.find(id="subdescription")
-
-# TODO  stats display
-#       PI-n hogy fusson? A képkészítő script a kép elkésuülése után hívonatja majd a maint, aminek akkor már más neve lesz
-#       Stats script külön, csak lekérdezés igazából
 
 if (plate_in_db(PLATE, cursor)):
     print("A rendszám benne van az adatbázisban")
