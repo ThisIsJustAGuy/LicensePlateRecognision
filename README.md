@@ -1,7 +1,7 @@
 <!-- PROJECT SHIELDS -->
-[![Contributors]][contributors-url]
-[![Issues]][issues-url]
-[![MIT License]][license-url]
+[[Közreműködők]][contributors-url]&emsp;
+[[Issues]][issues-url]&emsp;
+[[MIT Licensz]][license-url]
 
 
 
@@ -32,7 +32,7 @@
       <a href="#getting-started">Kezdjünk neki</a>
       <ul>
         <li><a href="#prerequisites">Előfeltételek</a></li>
-        <li><a href="#installation">Telepítés</a></li>
+        <li><a href="#installation">Letöltés</a></li>
       </ul>
     </li>
     <li><a href="#contributing">Közreműködők</a></li>
@@ -44,7 +44,7 @@
 
 <!-- ABOUT THE PROJECT -->
 <div id="about-the-project"></div>
-## A Projektről
+<h2> A Projektről </h2>
 
 A Parking Lot manager egy parkolóház rendszám alapú beléptetését kezelő program.
 A parkolóház bejáratánál a **rendszámot felismerve** egy **MySQL adatbázis** segítségével dönti el, hogy az adott jármű bejöhet-e, avagy sem.
@@ -58,13 +58,13 @@ Az adatbázisban tároljuk:
 
 
 <div id="built-with"></div>
-### Ezzel készült
+<h2> Ezzel készült </h2>
 
 Az alább látható library-k voltak használva a projekt elkészítésekor:
-* [![MySQLConnector][MySQLConnector]][MySQLConnector-url]
-* [![Matplotlib][Matplotlib]][Matplotlib-url]
-* [![Beautifulsoup][Beautifulsoup]][Beautifulsoup-url]
-* [![Dateutil][Dateutil]][Dateutil-url]
+* [MySQLConnector][MySQLConnector-url]
+* [Matplotlib][Matplotlib-url]
+* [Beautifulsoup][Beautifulsoup-url]
+* [Dateutil][Dateutil-url]
 
 <p align="right">(<a href="#readme-top">vissza az elejére</a>)</p>
 
@@ -72,52 +72,50 @@ Az alább látható library-k voltak használva a projekt elkészítésekor:
 
 <!-- GETTING STARTED -->
 <div id="getting-started"></div>
-## Kezdjünk neki
-
-Hogy kezdjük a használatot:
+<h2> Kezdjünk neki </h2>
 
 <div id="prerequisites"></div>
-### Előkövetelmények
+<h2> Előkövetelmények </h2>
 
-<p align="left">Kelleni fog a:</p>
-* [![Python]][Python-url]
-* [![Pip]][Pip-url]
+Kelleni fog:
+* [Python][Python-url]
+* [Pip][Pip-url]
 
 <div id="installation"></div>
-### Letöltés
+<h2> Letöltés </h2>
 
 Az alábbi utasítások követésével tudja letölteni, és használni az appot.
 
 1. Szerezze be a client_secret.json-t, az email küldés működéséhez
-1. Klónozza a repót
+2. Klónozza a repót
    ```sh
    git clone https://github.com/ThisIsJustAGuy/LicensePlateRecognision
    ```
-3. Telepítse ezeket a köyvtárakat
-  > MySQL connector
+3. Telepítse ezeket a köyvtárakat:
+  * MySQL connector
 
-  ```sh
-  pip install mysql-connector-python 
-  ```
+    ```sh
+    pip install mysql-connector-python 
+    ```
 
-  > Gmail-es levélküldéshez szükséges
+  * Gmail-es levélküldéshez szükséges
 
-  ```sh
-  pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
-  pip install beautifulsoup4
-  ```
+    ```sh
+    pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+    pip install beautifulsoup4
+    ```
 
-  > Matplotlib, amely magával hozza a Numpy-t is
+  * Matplotlib, amely magával hozza a Numpy-t is
 
-  ```sh
-  pip install matplotlib
-  ```
+    ```sh
+    pip install matplotlib
+    ```
 
-  > Dateutil
+  * Dateutil
 
-  ```sh
-  pip install python-dateutil
-  ```
+    ```sh
+    pip install python-dateutil
+    ```
 4. Hozza létre a szükséges adatbázist  
 5. Futtassa.... ide majd ha kész kiegészül
 
@@ -127,10 +125,10 @@ Az alábbi utasítások követésével tudja letölteni, és használni az appot
 
 <!-- CONTRIBUTING -->
 <div id="contributing"></div>
-## Közreműködők
+<h2> Közreműködők </h2>
 
-* [![Borbély Bálint][BB]]
-* [![Fábry László][FL]]
+* [Borbély Bálint][BB]
+* [Fábry László][FL]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -138,7 +136,7 @@ Az alábbi utasítások követésével tudja letölteni, és használni az appot
 
 <!-- LICENSE -->
 <div id="license"></div>
-## Licensz
+<h2> Licensz </h2>
 
 A projektet MIT licesz védi. További információért tekintse meg a `LICENSE` fájlt.
 
