@@ -48,11 +48,13 @@
 
 A Parking Lot manager egy parkolóház rendszám alapú beléptetését kezelő program.
 A parkolóház bejáratánál a **rendszámot felismerve** egy **MySQL adatbázis** segítségével dönti el, hogy az adott jármű bejöhet-e, avagy sem.
+Utóbbi esetben a jármű tulajdonosa e-mailt kap a beengedés megtagadása okáról, de egy LED segítségével is látható a hibakód.
 
 Az adatbázisban tároljuk:
 * Az **érvényes, és leját** bérlettel rendelkező **rendszámokat**
 * A **szektor(oka)t**, amely(ek)re a bérlet érvényes (volt)
 * A rendszámokat használó személyek **e-mail címét**
+* A **sikeres és sikertelen belépési kísérletek**et
 
 <p align="right">(<a href="#readme-top">vissza az elejére</a>)</p>
 
