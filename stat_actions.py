@@ -22,10 +22,6 @@ def get_all_stats(cursor, when):
     return result
 
 
-# ide valami terminal data visualization library
-# pl.: bashplotlib, prettytable, colorama(colors)
-# másik opció, hogy agy külön file-t generálunk statnak, és azt megnyitja a program
-# pl.: matplotlib, seaborn(matplotlib továbbhúzva), bokeh, plotly
 def create_bar_chart(entries, type):
     # belépések száma, szektorok neve
     sectors = ['A', 'B', 'C', 'D']
@@ -34,7 +30,6 @@ def create_bar_chart(entries, type):
     fig, ax = pyplot.subplots()
     rects1 = ax.bar(x, entries, width)
 
-    # Add some text for labels, title and custom x-axis tick labels, etc.
     ax.set_ylabel(f'{type} belépések száma')
     ax.set_xlabel('Szektorok')
     ax.set_xticks(x, sectors)
@@ -54,7 +49,6 @@ def create_line_chart(dates, entries, type):
     pyplot.plot(dates, entries)
     ax.set_ylabel(f'{type} belépések száma')
     ax.set_xlabel('Belépési dátumok')
-    # ax.set_xticks(x, sectors)
     ax.set_title(f'{type} belépések dátumra lebontva')
     fig.canvas.manager.set_window_title(f'{type} belépések dátumra lebontva')
     fig.tight_layout()
@@ -95,5 +89,3 @@ def create_charts(stats):
     create_line_chart(line_dates, line_unsuccessful_entries, 'Sikertelen')
 
     print('Az elkészült diagramok megtalálhatók a ./charts könyvtárban')
-    # for (id, sector, timestamp, successful) in stats:
-    # print(id, sector, timestamp, successful)
