@@ -4,17 +4,20 @@
 [[MIT Licensz]][license-url]
 
 
-
+<!-- Dokumentációt majd pdf-be átrakni -->
+<!-- A fejlesztői dokumentáció tartalmazza a feladat kidolgozása során felmerülő összes részletet. (tervezési fázis, felmerülő problémák, áramköri rajzok, felhasznált elemek, hardver specifikációk, szoftver specifikációk, rendszerkövetelmények, a fejlesztett kódok részletezése, képek a kész projektről, stb.)
+A felhasználói útmutató/dokumentáció (user manual) tartalmazza mindazokat az információklat, melyek szükségesek a modell beüzemeléséhez és rendeltetésszerű használatához egy laikus felhasználó számára.-->
 <!-- PROJECT LOGO -->
 <br />
 <div align="center" id="readme-top">
-
+  <p align="center">Mikroelektromechanikai rendszerek (GKNB_INTM020)</p>
   <h3 align="center">Parking Lot Manager</h3>
 
   <p align="center">
     (PLM)
   </p>
 </div>
+
 
 
 
@@ -53,7 +56,7 @@ Utóbbi esetben a jármű tulajdonosa e-mailt kap a beengedés megtagadása oká
 Lehetőség van statisztikát is készíteni az elmúlt egy évre, hónapra, vagy hétre tekintettel, a szektorokba történő belépések, és a dátomra lebontott belépések alapján. 
 
 Az adatbázisban tároljuk:
-* Az **érvényes, és leját** bérlettel rendelkező **rendszámokat**
+* Az **érvényes, és lejárt** bérlettel rendelkező **rendszámokat**
 * A **szektor(oka)t**, amely(ek)re a bérlet érvényes (volt)
 * A rendszámokat használó személyek **e-mail címét**
 * A **sikeres és sikertelen belépési kísérletek**et
