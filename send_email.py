@@ -13,6 +13,30 @@ CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'Gmail API Python Send Email'
 
 
+def bad_sector_email(dest_email, title1, title2, description, subdescription, msgHTML):
+    title1.string.replace_with("Rossz")
+    title2.string.replace_with("szektor")
+    description.string.replace_with(
+        "Olyan szektorba próbált parkolni, ahova nincs érvényes bérlete. Az alábbi linken megtekintheti hova van érvényes bérlete:\nwww.example.com")
+    subdescription.string.replace_with(
+        "Az alábbi linken vásárolhat új bérletet:\nwww.example2.com")
+    msgPLAIN = "Rossz szektor"
+    msgSubject = "Rossz szektor"
+    start_email_process(dest_email, msgHTML, msgPLAIN, msgSubject)
+
+
+def no_ticket_email(dest_email, title1, title2, description, subdescription, msgHTML):
+    title1.string.replace_with("Nincs érvényes")
+    title2.string.replace_with("bérlet")
+    description.string.replace_with(
+        "Sajnos ennek az autójának egyáltalán nincs érvényes bérlete.")
+    subdescription.string.replace_with(
+        "Az alábbi linken vásárolhat új bérletet:\nwww.example2.com")
+    msgPLAIN = "Nincs érvényes bérlete"
+    msgSubject = "Nincs érvényes bérlete"
+    start_email_process(dest_email, msgHTML, msgPLAIN, msgSubject)
+
+
 def get_credentials():
     home_dir = os.path.expanduser('~')
     credential_dir = os.path.join(home_dir, '.credentials')
