@@ -91,18 +91,18 @@ Kelleni fog:
 <div id="installation"></div>
 <h2> Letöltés </h2>
 
-Az alábbi utasítások követésével tudja letölteni, és használni az appot.
+Az alábbi utasítások követésével tudja letölteni az appot.
 
-1. Szerezze be a client_secret.json-t, az email küldés működéséhez
+1. Szerezze be a client_secret.json-t a Google-től az email küldés működéséhez
 2. Klónozza a repót
    ```sh
    git clone https://github.com/ThisIsJustAGuy/LicensePlateRecognision
    ```
 3. Telepítse ezeket a köyvtárakat:
-  * MySQL connector
+  * MariaDB
 
     ```sh
-    pip install mysql-connector-python 
+    pip install mariadb
     ```
 
   * Gmail-es levélküldéshez szükséges
@@ -125,7 +125,6 @@ Az alábbi utasítások követésével tudja letölteni, és használni az appot
     pip install python-dateutil
     ```
 4. Hozza létre a szükséges adatbázist  
-5. Futtassa.... ide majd ha kész kiegészül
 
 <p align="right">(<a href="#readme-top">vissza az elejére</a>)</p>
 
