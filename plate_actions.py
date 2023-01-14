@@ -27,4 +27,5 @@ def get_email_by_plate(plate, cursor):
     plate = plate.upper()
     cursor.execute("SELECT email FROM plates WHERE rendszam = %(plate)s", {
                    "plate": plate})
-    return cursor.fetchone()[0]
+    email=cursor.fetchone()[0]
+    return email
