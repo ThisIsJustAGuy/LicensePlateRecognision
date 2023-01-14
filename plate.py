@@ -4,7 +4,7 @@ from pprint import pprint
 
 
 def plate_recognition():
-    # os.system('fswebcam -q  capture.jpg')
+    os.system('fswebcam -q  capture.jpg')
     regions = ['hu', 'us-ca'] 
     with open('capture.jpg', 'rb') as fp:
         response = requests.post(

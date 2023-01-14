@@ -5,11 +5,11 @@ from plate_actions import get_email_by_plate, plate_in_db, car_has_valid_ticket,
 from detection_actions import add_detection
 from bs4 import BeautifulSoup
 from plate import plate_recognition
-# from led import green_light,red_light, red_fast, red_slow
+from led import green_light,red_light, red_fast, red_slow
 
 # TODO dokumentáció, használati útmutató, readme.md
 
-db = connecttodb("localhost", "root", "", "rendszamok")
+db = connecttodb("localhost", "root", "license", "rendszamok")
 cursor = db.cursor(buffered=True)
 SECTOR = 'A'
 PLATE = plate_recognition() 
@@ -31,21 +31,21 @@ if (plate_in_db(PLATE, cursor)):
             print("Az autónak érvényes bérlete van az adott szektorra")
             print(
                 "Az autó bejöhet, zöld világít, detectionsbe sikeres belépés kezdeményezés")
-            # green_light()    
+            green_light()    
             add_detection(SECTOR, 1, cursor, db)
         else:
             print("Az autó rossz szektorban van, piros világít, email- és detectionsbe sikertelen belépés kezdeményezés")
-            # red_light()
+            red_light()
             bad_sector_email(dest_email, title1, title2,
                              description, subdescription, msgHTML)
             add_detection(SECTOR, 0, cursor, db)
     else:
         print("Az autónak nincs érvényes bérlete, piros lassan villog, email- és detectionsbe sikertelen belépés kezdeményezés")
-        # red_slow()
+        red_slow()
         no_ticket_email(dest_email, title1, title2,
                         description, subdescription, msgHTML)
         add_detection(SECTOR, 0, cursor, db)
 else:
     print("A rendszám nincs az adatbázisban, piros gyorsan villog, detectionsbe sikertelen belépés kezdeményezés")
-    # red_fast()
+    red_fast()
     add_detection(SECTOR, 0, cursor, db)
