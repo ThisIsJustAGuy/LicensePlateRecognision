@@ -10,6 +10,7 @@ A felhasználói útmutató/dokumentáció (user manual) tartalmazza mindazokat 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center" id="readme-top">
+  <p align="center">2023</p>
   <p align="center">Mikroelektromechanikai rendszerek (GKNB_INTM020)</p>
   <h3 align="center">Parking Lot Manager</h3>
 
