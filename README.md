@@ -68,7 +68,7 @@ Az adatbázisban tároljuk:
 <h2> Ezzel készült </h2>
 
 Az alább látható library-k voltak használva a projekt elkészítésekor:
-* [MySQLConnector][MySQLConnector-url]
+* [MariaDB][MariaDB-url]
 * [Matplotlib][Matplotlib-url]
 * [Beautifulsoup][Beautifulsoup-url]
 * [Dateutil][Dateutil-url]
@@ -162,6 +162,6 @@ A projektet MIT licesz védi. További információért tekintse meg a `LICENSE`
 [BB]: https://github.com/ThisIsJustAGuy
 [FL]: https://github.com/fabrylaszlo
 [Matplotlib-url]: https://matplotlib.org
-[MySQLConnector-url]: https://pypi.org/project/mysql-connector-python/
+[MariaDB-url]: https://raspberrytips.com/install-mariadb-raspberry-pi/
 [Beautifulsoup-url]: https://beautiful-soup-4.readthedocs.io/en/latest/
 [Dateutil-url]: https://dateutil.readthedocs.io/en/stable/
